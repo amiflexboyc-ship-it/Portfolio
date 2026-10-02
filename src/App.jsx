@@ -29,6 +29,7 @@ import {
   Clock,
   ShieldCheck,
   Mail,
+  Phone,
 } from "lucide-react";
 
 // Crisp SVG Icons for GitHub, LinkedIn, and X/Twitter
@@ -54,11 +55,18 @@ const TwitterIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
+const WhatsAppIcon = ({ className = "w-5 h-5" }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.186 8.186 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.12.17 1.75 2.67 4.24 3.75.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+  </svg>
+);
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("all");
   const [skillCategory, setSkillCategory] = useState("all");
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -68,12 +76,24 @@ function App() {
     message: "",
   });
 
-  const emailAddress = "adekunle.dev@gmail.com";
+  const emailAddress = "amiflexboyc@gmail.com";
+  const phoneNumber = "09077108987";
+  const formattedPhone = "+234 907 710 8987";
+  const whatsappUrl = "https://wa.me/2349077108987?text=Hello%20Adekunle%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!";
+  const twitterUrl = "https://x.com/amiflexboyc";
+  const githubUrl = "https://github.com/amiflexboyc-ship-it";
+  const linkedinUrl = "https://linkedin.com";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(phoneNumber);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2500);
   };
 
   const handleFormSubmit = (e) => {
@@ -292,24 +312,47 @@ function App() {
           </div>
 
           {/* RIGHT ACTION BUTTONS */}
-          <div className="hidden items-center gap-4 md:flex">
+          <div className="hidden items-center gap-3 md:flex">
             <a
-              href="https://github.com"
+              href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg p-2 text-zinc-400 transition hover:border hover:border-[#C9A227]/30 hover:bg-[#C9A227]/10 hover:text-[#E0B84C]"
               aria-label="GitHub Profile"
+              title="GitHub"
             >
               <GithubIcon className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg p-2 text-zinc-400 transition hover:border hover:border-[#C9A227]/30 hover:bg-[#C9A227]/10 hover:text-[#E0B84C]"
               aria-label="LinkedIn Profile"
+              title="LinkedIn"
             >
               <LinkedinIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={twitterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg p-2 text-zinc-400 transition hover:border hover:border-[#C9A227]/30 hover:bg-[#C9A227]/10 hover:text-[#E0B84C]"
+              aria-label="Twitter / X Profile"
+              title="Twitter / X"
+            >
+              <TwitterIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-600 hover:text-white"
+              aria-label="WhatsApp"
+              title="WhatsApp: 09077108987"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              <span>WhatsApp</span>
             </a>
             <a
               href="#contact"
@@ -353,20 +396,34 @@ function App() {
                 </a>
               ))}
 
-              <div className="mt-4 flex gap-3 pt-4 border-t border-white/10">
-                <a
-                  href="#contact"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex-1 rounded-xl bg-[#C9A227] py-3 text-center text-sm font-semibold text-black"
-                >
-                  Contact Me
-                </a>
-                <button
-                  onClick={handleCopyEmail}
-                  className="flex items-center justify-center rounded-xl border border-[#C9A227]/40 px-4 py-3 text-sm text-[#E0B84C]"
-                >
-                  {copiedEmail ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                </button>
+              <div className="mt-4 flex flex-col gap-3 pt-4 border-t border-white/10">
+                <div className="flex gap-2">
+                  <a
+                    href="#contact"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex-1 rounded-xl bg-[#C9A227] py-3 text-center text-sm font-semibold text-black"
+                  >
+                    Contact Me
+                  </a>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center rounded-xl bg-emerald-600/20 border border-emerald-500/40 px-4 py-3 text-emerald-400"
+                    title="Chat on WhatsApp"
+                  >
+                    <WhatsAppIcon className="h-5 w-5" />
+                  </a>
+                </div>
+                <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-3.5 py-2.5 text-xs text-zinc-300">
+                  <span className="truncate">{emailAddress}</span>
+                  <button
+                    onClick={handleCopyEmail}
+                    className="text-[#E0B84C] ml-2 font-medium"
+                  >
+                    {copiedEmail ? "Copied" : "Copy"}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -416,6 +473,16 @@ function App() {
                   Get In Touch
                 </a>
 
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-5 py-3.5 text-sm font-semibold text-emerald-400 backdrop-blur transition hover:border-emerald-400 hover:bg-emerald-500/20 hover:text-white"
+                >
+                  <WhatsAppIcon className="h-4 w-4" />
+                  <span>WhatsApp Chat</span>
+                </a>
+
                 <button
                   onClick={handleCopyEmail}
                   className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-5 py-3.5 text-sm font-medium text-zinc-300 transition hover:border-[#C9A227]/40 hover:text-[#E0B84C]"
@@ -436,38 +503,59 @@ function App() {
               </div>
 
               {/* Social links row */}
-              <div className="mt-10 flex items-center justify-center gap-6 lg:justify-start">
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
                 <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
                   Connect With Me
                 </span>
-                <div className="h-px w-10 bg-zinc-800" />
-                <div className="flex items-center gap-3">
+                <div className="hidden sm:block h-px w-8 bg-zinc-800" />
+                <div className="flex items-center gap-2.5">
                   <a
-                    href="https://github.com"
+                    href={githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-zinc-400 transition hover:border-[#C9A227] hover:text-[#E0B84C]"
                     aria-label="GitHub"
+                    title="GitHub"
                   >
                     <GithubIcon className="h-4 w-4" />
                   </a>
                   <a
-                    href="https://linkedin.com"
+                    href={linkedinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-zinc-400 transition hover:border-[#C9A227] hover:text-[#E0B84C]"
                     aria-label="LinkedIn"
+                    title="LinkedIn"
                   >
                     <LinkedinIcon className="h-4 w-4" />
                   </a>
                   <a
-                    href="https://twitter.com"
+                    href={twitterUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-zinc-400 transition hover:border-[#C9A227] hover:text-[#E0B84C]"
-                    aria-label="Twitter"
+                    aria-label="Twitter / X"
+                    title="Twitter / X"
                   >
                     <TwitterIcon className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 transition hover:border-emerald-400 hover:bg-emerald-500 hover:text-white"
+                    aria-label="WhatsApp"
+                    title="Chat on WhatsApp (09077108987)"
+                  >
+                    <WhatsAppIcon className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={`mailto:${emailAddress}`}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-zinc-400 transition hover:border-[#C9A227] hover:text-[#E0B84C]"
+                    aria-label="Email"
+                    title={`Email: ${emailAddress}`}
+                  >
+                    <Mail className="h-4 w-4" />
                   </a>
                 </div>
               </div>
@@ -917,73 +1005,161 @@ function App() {
                 I am currently open to full-time roles, engineering contracts, and freelance projects. Whether you have an idea in mind or need assistance with your existing web application, I'd love to connect.
               </p>
 
-              {/* Direct email quick card */}
-              <div className="mt-8 rounded-2xl border border-[#C9A227]/30 bg-gradient-to-br from-[#16140f] to-[#0b0a0e] p-6 shadow-xl">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C9A227]/20 text-[#E0B84C]">
-                      <Mail className="h-5 w-5" />
+              {/* Direct Contact Cards */}
+              <div className="mt-8 space-y-3.5">
+                {/* Direct email quick card */}
+                <div className="rounded-2xl border border-[#C9A227]/30 bg-gradient-to-br from-[#16140f] to-[#0b0a0e] p-5 shadow-xl transition hover:border-[#C9A227]/60">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#C9A227]/20 text-[#E0B84C]">
+                        <Mail className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-zinc-400">Direct Email</p>
+                        <a
+                          href={`mailto:${emailAddress}`}
+                          className="text-sm font-bold text-white hover:text-[#E0B84C] transition-colors break-all"
+                        >
+                          {emailAddress}
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-xs text-zinc-400">Direct Email</p>
-                      <a
-                        href={`mailto:${emailAddress}`}
-                        className="text-sm font-bold text-white hover:text-[#E0B84C] transition-colors"
+
+                    <button
+                      onClick={handleCopyEmail}
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-zinc-300 transition hover:border-[#C9A227] hover:text-[#E0B84C] flex-shrink-0"
+                      title="Copy Email"
+                    >
+                      {copiedEmail ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
+                    </button>
+                  </div>
+
+                  {copiedEmail && (
+                    <p className="mt-2 text-xs text-emerald-400 flex items-center gap-1.5">
+                      <CheckCircle2 className="h-3.5 w-3.5" /> Email address copied to clipboard!
+                    </p>
+                  )}
+                </div>
+
+                {/* WhatsApp & Phone quick card */}
+                <div className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-[#0c1a12] to-[#0a0f0d] p-5 shadow-xl transition hover:border-emerald-500/60">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400">
+                        <WhatsAppIcon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <p className="text-xs text-emerald-400 font-medium">WhatsApp & Call</p>
+                          <span className="inline-flex items-center rounded-full bg-emerald-500/20 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-300">
+                            Active
+                          </span>
+                        </div>
+                        <a
+                          href={whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-bold text-white hover:text-emerald-400 transition-colors"
+                        >
+                          {phoneNumber} <span className="text-xs text-zinc-400 font-normal">({formattedPhone})</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={handleCopyPhone}
+                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-zinc-300 transition hover:border-emerald-500 hover:text-emerald-400 flex-shrink-0"
+                        title="Copy Phone Number"
                       >
-                        {emailAddress}
+                        {copiedPhone ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
+                      </button>
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex h-9 px-3 items-center justify-center gap-1.5 rounded-lg bg-emerald-600 text-xs font-semibold text-white shadow-md shadow-emerald-900/30 transition hover:bg-emerald-500 active:scale-95"
+                        title="Open WhatsApp Chat"
+                      >
+                        <span>Chat</span>
+                        <ArrowUpRight className="h-3.5 w-3.5" />
                       </a>
                     </div>
                   </div>
 
-                  <button
-                    onClick={handleCopyEmail}
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-zinc-300 transition hover:border-[#C9A227] hover:text-[#E0B84C]"
-                    title="Copy Email"
-                  >
-                    {copiedEmail ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
-                  </button>
+                  {copiedPhone && (
+                    <p className="mt-2 text-xs text-emerald-400 flex items-center gap-1.5">
+                      <CheckCircle2 className="h-3.5 w-3.5" /> Phone number copied to clipboard!
+                    </p>
+                  )}
                 </div>
-
-                {copiedEmail && (
-                  <p className="mt-3 text-xs text-emerald-400 flex items-center gap-1.5">
-                    <CheckCircle2 className="h-3.5 w-3.5" /> Email address copied to clipboard!
-                  </p>
-                )}
               </div>
 
               {/* Social Channels */}
               <div className="mt-8 space-y-4">
                 <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
-                  Profiles & Repositories
+                  Connect & Social Channels
                 </p>
-                <div className="flex flex-col gap-3">
+                <div className="grid gap-3 sm:grid-cols-2">
                   <a
-                    href="https://github.com"
+                    href={twitterUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-[#0c0c11] px-5 py-3.5 transition hover:border-[#C9A227]/50 hover:bg-[#121118]"
+                    className="flex items-center justify-between rounded-xl border border-white/10 bg-[#0c0c11] px-4 py-3.5 transition hover:border-[#C9A227]/50 hover:bg-[#121118]"
                   >
                     <div className="flex items-center gap-3">
-                      <GithubIcon className="h-5 w-5 text-[#E0B84C]" />
+                      <TwitterIcon className="h-5 w-5 text-[#E0B84C]" />
                       <div>
-                        <p className="text-sm font-semibold text-white">GitHub</p>
-                        <p className="text-xs text-zinc-400">Explore open source code & repositories</p>
+                        <p className="text-sm font-semibold text-white">Twitter / X</p>
+                        <p className="text-xs text-zinc-400">Updates & thoughts</p>
                       </div>
                     </div>
                     <ArrowUpRight className="h-4 w-4 text-zinc-500" />
                   </a>
 
                   <a
-                    href="https://linkedin.com"
+                    href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-[#0c0c11] px-5 py-3.5 transition hover:border-[#C9A227]/50 hover:bg-[#121118]"
+                    className="flex items-center justify-between rounded-xl border border-emerald-500/20 bg-[#0c0c11] px-4 py-3.5 transition hover:border-emerald-500/50 hover:bg-[#0f1412]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <WhatsAppIcon className="h-5 w-5 text-emerald-400" />
+                      <div>
+                        <p className="text-sm font-semibold text-white">WhatsApp</p>
+                        <p className="text-xs text-zinc-400">Instant messaging</p>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4 text-zinc-500" />
+                  </a>
+
+                  <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between rounded-xl border border-white/10 bg-[#0c0c11] px-4 py-3.5 transition hover:border-[#C9A227]/50 hover:bg-[#121118]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <GithubIcon className="h-5 w-5 text-[#E0B84C]" />
+                      <div>
+                        <p className="text-sm font-semibold text-white">GitHub</p>
+                        <p className="text-xs text-zinc-400">Repositories & code</p>
+                      </div>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4 text-zinc-500" />
+                  </a>
+
+                  <a
+                    href={linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between rounded-xl border border-white/10 bg-[#0c0c11] px-4 py-3.5 transition hover:border-[#C9A227]/50 hover:bg-[#121118]"
                   >
                     <div className="flex items-center gap-3">
                       <LinkedinIcon className="h-5 w-5 text-[#E0B84C]" />
                       <div>
                         <p className="text-sm font-semibold text-white">LinkedIn</p>
-                        <p className="text-xs text-zinc-400">Professional network & recommendations</p>
+                        <p className="text-xs text-zinc-400">Professional network</p>
                       </div>
                     </div>
                     <ArrowUpRight className="h-4 w-4 text-zinc-500" />
@@ -1105,6 +1281,57 @@ function App() {
             </span>
           </div>
 
+          <div className="flex items-center gap-4">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-400 transition hover:text-emerald-400"
+              aria-label="WhatsApp"
+              title="Chat on WhatsApp (09077108987)"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={twitterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-400 transition hover:text-[#E0B84C]"
+              aria-label="Twitter / X"
+              title="Twitter / X"
+            >
+              <TwitterIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-400 transition hover:text-[#E0B84C]"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <GithubIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-400 transition hover:text-[#E0B84C]"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <LinkedinIcon className="h-5 w-5" />
+            </a>
+            <a
+              href={`mailto:${emailAddress}`}
+              className="text-zinc-400 transition hover:text-[#E0B84C]"
+              aria-label="Email"
+              title={emailAddress}
+            >
+              <Mail className="h-5 w-5" />
+            </a>
+          </div>
+
           <p className="text-center text-xs text-zinc-500">
             © {new Date().getFullYear()} Adekunle. All rights reserved. Designed & built with React, Vite & Tailwind CSS.
           </p>
@@ -1117,6 +1344,19 @@ function App() {
           </a>
         </div>
       </footer>
+
+      {/* FLOATING WHATSAPP QUICK ACTION */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-full bg-gradient-to-r from-emerald-600 to-[#25D366] px-4 py-3 font-semibold text-white shadow-xl shadow-emerald-950/60 transition hover:scale-110 active:scale-95 border border-emerald-400/30"
+        aria-label="Chat on WhatsApp"
+        title="Chat with Adekunle on WhatsApp (09077108987)"
+      >
+        <WhatsAppIcon className="h-5 w-5 text-white" />
+        <span className="text-xs font-bold tracking-wide hidden sm:inline-block">Chat on WhatsApp</span>
+      </a>
     </div>
   );
 }
