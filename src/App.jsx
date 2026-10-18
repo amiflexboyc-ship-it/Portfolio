@@ -1,9 +1,8 @@
 import { useState } from "react";
-import portfolio from "./assets/portfolio.png";
+import portfolio from "./assets/portfolio.jpg";
 import {
   ExternalLink,
   Code2,
-  Sparkles,
   Terminal,
   CheckCircle2,
   ChevronRight,
@@ -23,7 +22,6 @@ import {
   Server,
   Send,
   ArrowRight,
-  Star,
   User,
   BookOpen,
   Clock,
@@ -129,7 +127,7 @@ function App() {
     { name: "Node.js", category: "backend", level: "Advanced", icon: Server, desc: "Runtime, Event Loop, File I/O" },
     { name: "Express.js", category: "backend", level: "Advanced", icon: Cpu, desc: "REST APIs, Middleware, Auth" },
     { name: "MongoDB", category: "backend", level: "Intermediate", icon: Database, desc: "Mongoose, Schema Modeling" },
-    { name: "Firebase", category: "backend", level: "Intermediate", icon: Sparkles, desc: "Auth, Firestore, Hosting" },
+    { name: "Firebase", category: "backend", level: "Intermediate", icon: Database, desc: "Auth, Firestore, Hosting" },
     { name: "REST APIs", category: "backend", level: "Advanced", icon: Globe, desc: "Endpoints, JSON, Status Codes" },
     { name: "Git & GitHub", category: "tools", level: "Advanced", icon: Terminal, desc: "Branching, Pull Requests, CI/CD" },
     { name: "Responsive Design", category: "frontend", level: "Expert", icon: Smartphone, desc: "Mobile-first, cross-browser" },
@@ -186,40 +184,40 @@ function App() {
         "Administrative dashboard for platform management",
       ],
       technologies: ["React", "Node.js", "Express", "Firebase", "MongoDB", "Tailwind CSS"],
-      liveUrl: "#projects",
-      githubUrl: "https://github.com",
+      liveUrl: "#contact",
+      githubUrl: "https://github.com/amiflexboyc-ship-it",
     },
     {
-      id: "movieapp",
-      title: "CineStream Movie Explorer",
+      id: "bice-hairdresser",
+      title: "Bice Hairdresser",
       category: "frontend",
-      badge: "Web Application",
+      badge: "Commercial Web Application",
       description:
-        "An engaging entertainment discovery platform that integrates external REST APIs to showcase trending movies, search by genre or title, display ratings, and deliver an immersive media browsing experience.",
+        "A luxury African hair salon and beauty platform in Westcliff-on-Sea, Essex. Delivers an opulent client experience featuring interactive styling menus, bridal glam showcases, and seamless appointment booking.",
       keyPoints: [
-        "Dynamic live search and genre filtering",
-        "Rich movie detail views with cast and synopsis",
-        "Adaptive grid layout optimized across all screen sizes",
+        "Bespoke service showcase for knotless braids, cornrows, and bridal styling",
+        "Mobile-first consultation booking and rapid inquiry integration",
+        "Refined luxury aesthetic with smooth micro-interactions and top-tier performance",
       ],
-      technologies: ["React", "REST API", "Tailwind CSS", "JavaScript ES6+"],
-      liveUrl: "#projects",
-      githubUrl: "https://github.com",
+      technologies: ["React", "Tailwind CSS", "JavaScript ES6+", "Vite"],
+      liveUrl: "https://sister-bice.vercel.app/",
+      githubUrl: "https://github.com/amiflexboyc-ship-it",
     },
     {
-      id: "business",
-      title: "Apex Corporate Platform",
-      category: "frontend",
-      badge: "Commercial Website",
+      id: "skillconnect",
+      title: "SkillConnect",
+      category: "fullstack",
+      badge: "Full-Stack Platform",
       description:
-        "A corporate business website designed with modern aesthetics, fast loading speeds, smooth scroll navigation, and high-converting lead generation forms for commercial clientele.",
+        "The premier freelance marketplace platform connecting top-tier talent with high-impact clients worldwide. Features comprehensive profile management, talent discovery catalogs, and direct inquiry flows.",
       keyPoints: [
-        "Conversion-focused layouts and compelling CTAs",
-        "Lighthouse 95+ score for accessibility and performance",
-        "Custom responsive navigation and micro-interactions",
+        "Talent and client matching with interactive profile showcases",
+        "Streamlined service listings, dynamic catalog, and inquiry flows",
+        "Responsive, high-performance UI built with modern architecture",
       ],
-      technologies: ["React", "Tailwind CSS", "Modern JavaScript", "Vite"],
-      liveUrl: "#projects",
-      githubUrl: "https://github.com",
+      technologies: ["React", "Node.js", "Express", "Tailwind CSS", "REST API"],
+      liveUrl: "https://skillconnect-wine.vercel.app/",
+      githubUrl: "https://github.com/amiflexboyc-ship-it",
     },
   ];
 
@@ -438,7 +436,7 @@ function App() {
             <div className="text-center lg:col-span-7 lg:text-left">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A227]/30 bg-[#C9A227]/10 px-4 py-1.5 text-xs font-semibold text-[#F3D47A] shadow-inner">
-                <Sparkles className="h-3.5 w-3.5 text-[#E0B84C]" />
+                <Code2 className="h-3.5 w-3.5 text-[#E0B84C]" />
                 Full-Stack Software Engineer
               </div>
 
@@ -565,19 +563,19 @@ function App() {
             <div className="relative flex justify-center lg:col-span-5">
               <div className="relative">
                 {/* Glowing ambient ring */}
-                <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-[#C9A227]/40 via-amber-400/20 to-transparent blur-2xl" />
+                <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-[#C9A227]/25 via-amber-400/10 to-transparent blur-xl" />
 
                 {/* Decorative outer orbit ring */}
-                <div className="absolute -inset-6 rounded-full border border-dashed border-[#C9A227]/25 animate-[spin_40s_linear_infinite]" />
+                <div className="absolute -inset-6 rounded-full border border-dashed border-[#C9A227]/15 animate-[spin_40s_linear_infinite]" />
 
                 {/* Profile image container */}
-                <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[#C9A227]/60 bg-[#121216] shadow-2xl shadow-[#C9A227]/20 sm:h-80 sm:w-80 lg:h-96 lg:w-96">
+                <div className="relative h-64 w-64 overflow-hidden rounded-full border-[3px] border-[#C9A227]/50 bg-[#121216] shadow-2xl shadow-[#C9A227]/20 sm:h-80 sm:w-80 lg:h-96 lg:w-96">
                   <img
                     src={portfolio}
                     alt="Adekunle - Full-Stack Developer"
                     className="h-full w-full object-cover transition duration-500 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060608]/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060608]/20 via-transparent to-transparent" />
                 </div>
 
                 {/* Floating Micro-Badge Top Right */}
@@ -587,7 +585,7 @@ function App() {
                   </div>
                   <div className="text-left">
                     <p className="text-[11px] font-bold text-white">Frontend & UI</p>
-                    <p className="text-[10px] text-zinc-400">React • Tailwind</p>
+                    <p className="text-[10px] text-zinc-400">React / Tailwind</p>
                   </div>
                 </div>
 
@@ -598,7 +596,7 @@ function App() {
                   </div>
                   <div className="text-left">
                     <p className="text-[11px] font-bold text-white">Backend Systems</p>
-                    <p className="text-[10px] text-zinc-400">Node • MongoDB • Firebase</p>
+                    <p className="text-[10px] text-zinc-400">Node / MongoDB / Firebase</p>
                   </div>
                 </div>
               </div>
@@ -690,7 +688,7 @@ function App() {
               <div className="rounded-2xl border border-[#C9A227]/25 bg-gradient-to-b from-[#131219] to-[#0A090E] p-7 shadow-2xl">
                 <div className="flex items-center justify-between border-b border-white/10 pb-5">
                   <h3 className="text-lg font-bold text-[#E0B84C]">Core Engineering Values</h3>
-                  <Star className="h-5 w-5 text-[#E0B84C]" />
+                  <ShieldCheck className="h-5 w-5 text-[#E0B84C]" />
                 </div>
 
                 <div className="mt-6 space-y-5">
@@ -898,9 +896,21 @@ function App() {
 
                 {/* Project Body */}
                 <div className="flex-1 p-6 sm:p-7">
-                  <h3 className="text-2xl font-bold text-white transition-colors group-hover:text-[#E0B84C]">
-                    {project.title}
-                  </h3>
+                  {project.liveUrl && project.liveUrl.startsWith("http") ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/title inline-flex items-center gap-2 text-2xl font-bold text-white transition-colors hover:text-[#E0B84C]"
+                    >
+                      <span>{project.title}</span>
+                      <ArrowUpRight className="h-5 w-5 opacity-0 transition-all group-hover/title:opacity-100 group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5 text-[#E0B84C]" />
+                    </a>
+                  ) : (
+                    <h3 className="text-2xl font-bold text-white transition-colors group-hover:text-[#E0B84C]">
+                      {project.title}
+                    </h3>
+                  )}
 
                   <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                     {project.description}
@@ -932,7 +942,7 @@ function App() {
                 {/* Card Footer Actions */}
                 <div className="border-t border-white/[0.08] bg-[#09080e] p-5 flex items-center justify-between">
                   <a
-                    href="https://github.com"
+                    href={project.githubUrl || githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-400 transition hover:text-white"
@@ -941,13 +951,25 @@ function App() {
                     Source Code
                   </a>
 
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#E0B84C] transition hover:text-white"
-                  >
-                    Live Demo
-                    <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  {project.liveUrl && project.liveUrl.startsWith("http") ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-[#C9A227]/40 bg-[#C9A227]/10 px-3.5 py-1.5 text-xs font-semibold text-[#E0B84C] transition hover:border-[#E0B84C] hover:bg-[#C9A227] hover:text-black"
+                    >
+                      Live Demo
+                      <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  ) : (
+                    <a
+                      href={project.liveUrl || "#contact"}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-zinc-300 transition hover:border-[#C9A227]/40 hover:text-[#E0B84C]"
+                    >
+                      Request Demo
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
@@ -1333,14 +1355,15 @@ function App() {
           </div>
 
           <p className="text-center text-xs text-zinc-500">
-            © {new Date().getFullYear()} Adekunle. All rights reserved. Designed & built with React, Vite & Tailwind CSS.
+            Copyright {new Date().getFullYear()} Adekunle. All rights reserved. Designed & built with React, Vite & Tailwind CSS.
           </p>
 
           <a
             href="#home"
             className="flex items-center gap-1.5 text-xs font-semibold text-[#E0B84C] transition hover:text-white"
           >
-            Back to Top ↑
+            <span>Back to Top</span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
         </div>
       </footer>
