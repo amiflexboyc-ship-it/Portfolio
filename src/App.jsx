@@ -1,8 +1,9 @@
 import { useState } from "react";
-import portfolio from "./assets/portfolio.jpg";
+import portfolio from "./assets/portfolio.png";
 import {
   ExternalLink,
   Code2,
+  Sparkles,
   Terminal,
   CheckCircle2,
   ChevronRight,
@@ -436,7 +437,7 @@ function App() {
             <div className="text-center lg:col-span-7 lg:text-left">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 rounded-full border border-[#C9A227]/30 bg-[#C9A227]/10 px-4 py-1.5 text-xs font-semibold text-[#F3D47A] shadow-inner">
-                <Code2 className="h-3.5 w-3.5 text-[#E0B84C]" />
+                <Sparkles className="h-3.5 w-3.5 text-[#E0B84C]" />
                 Full-Stack Software Engineer
               </div>
 
@@ -563,19 +564,19 @@ function App() {
             <div className="relative flex justify-center lg:col-span-5">
               <div className="relative">
                 {/* Glowing ambient ring */}
-                <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-[#C9A227]/25 via-amber-400/10 to-transparent blur-xl" />
+                <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-[#C9A227]/40 via-amber-400/20 to-transparent blur-2xl" />
 
                 {/* Decorative outer orbit ring */}
-                <div className="absolute -inset-6 rounded-full border border-dashed border-[#C9A227]/15 animate-[spin_40s_linear_infinite]" />
+                <div className="absolute -inset-6 rounded-full border border-dashed border-[#C9A227]/25 animate-[spin_40s_linear_infinite]" />
 
                 {/* Profile image container */}
-                <div className="relative h-64 w-64 overflow-hidden rounded-full border-[3px] border-[#C9A227]/50 bg-[#121216] shadow-2xl shadow-[#C9A227]/20 sm:h-80 sm:w-80 lg:h-96 lg:w-96">
+                <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-[#C9A227]/60 bg-[#121216] shadow-2xl shadow-[#C9A227]/20 sm:h-80 sm:w-80 lg:h-96 lg:w-96">
                   <img
                     src={portfolio}
                     alt="Adekunle - Full-Stack Developer"
                     className="h-full w-full object-cover transition duration-500 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060608]/20 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060608]/60 via-transparent to-transparent" />
                 </div>
 
                 {/* Floating Micro-Badge Top Right */}
@@ -585,7 +586,7 @@ function App() {
                   </div>
                   <div className="text-left">
                     <p className="text-[11px] font-bold text-white">Frontend & UI</p>
-                    <p className="text-[10px] text-zinc-400">React / Tailwind</p>
+                    <p className="text-[10px] text-zinc-400">React • Tailwind</p>
                   </div>
                 </div>
 
@@ -596,7 +597,7 @@ function App() {
                   </div>
                   <div className="text-left">
                     <p className="text-[11px] font-bold text-white">Backend Systems</p>
-                    <p className="text-[10px] text-zinc-400">Node / MongoDB / Firebase</p>
+                    <p className="text-[10px] text-zinc-400">Node • MongoDB • Firebase</p>
                   </div>
                 </div>
               </div>
