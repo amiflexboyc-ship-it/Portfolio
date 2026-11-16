@@ -29,7 +29,6 @@ import {
   Phone,
   Layout,
   Flame,
-  ArrowLeft,
 } from "lucide-react";
 
 // Crisp SVG Icons
@@ -57,13 +56,12 @@ const TwitterIcon = ({ className = "w-5 h-5" }) => (
 
 const WhatsAppIcon = ({ className = "w-5 h-5" }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.186 8.186 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.12.17 1.75 2.67 4.24 3.75.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.186 8.186 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.02 2.58c.12.17 1.75 2.67 4.24 3.75.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z" />
   </svg>
 );
 
-export default function PortfolioPage({ onNavigateHome }) {
+export default function PortfolioPage() {
   const [activeTab, setActiveTab] = useState("all");
-  const [skillCategory, setSkillCategory] = useState("all");
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -112,12 +110,6 @@ export default function PortfolioPage({ onNavigateHome }) {
     }, 1000);
   };
 
-  const stats = [
-    { label: "Core Competency", value: "Full-Stack", detail: "Frontend & Backend Systems" },
-    { label: "Modern Reactivity", value: "React 19", detail: "Vite, Hooks & Component Logic" },
-    { label: "API & Data", value: "Node & Express", detail: "REST APIs, MongoDB & Firebase" },
-    { label: "Styling Precision", value: "Tailwind CSS", detail: "Responsive & High-Performance UI" },
-  ];
 
   const skillGroups = [
     {
@@ -325,22 +317,6 @@ export default function PortfolioPage({ onNavigateHome }) {
 
   return (
     <div className="relative">
-      {/* Return to Landing Page Banner */}
-      <div className="relative z-20 border-b border-white/[0.08] bg-[#0c0c12]/80 px-6 py-3 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <button
-            onClick={onNavigateHome}
-            className="inline-flex items-center gap-2 text-xs font-semibold text-[#E0B84C] transition hover:text-white cursor-pointer"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            <span>Return to ADETECH Home Landing</span>
-          </button>
-
-          <span className="text-xs text-zinc-400 font-medium hidden sm:inline-block">
-            Main Engineering Portfolio & Case Studies
-          </span>
-        </div>
-      </div>
 
       {/* PORTFOLIO HERO HEADER */}
       <section id="portfolio-overview" className="relative z-10 px-6 pt-12 pb-16 md:pt-16 md:pb-24">
@@ -364,7 +340,7 @@ export default function PortfolioPage({ onNavigateHome }) {
 
               {/* Bio Subtitle */}
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg lg:text-xl">
-                Welcome to my engineering portfolio. I am <strong className="text-white">Adekunle</strong> at <strong className="text-[#E0B84C]">ADETECH</strong>. I design and build full-stack web applications combining modern frontend reactivity with resilient backend architecture using <span className="text-[#E0B84C]">React</span>, <span className="text-[#E0B84C]">Node.js</span>, <span className="text-[#E0B84C]">MongoDB</span>, and <span className="text-[#E0B84C]">Firebase</span>.
+                Welcome to my engineering portfolio. I am <strong className="text-white">Adekunle</strong> at <strong className="text-[#E0B84C]">ADETECH</strong>. I craft high-impact digital solutions and full-stack web applications—blending <span className="text-[#E0B84C]">intuitive user experiences</span>, <span className="text-[#E0B84C]">high-performance engineering</span>, and <span className="text-[#E0B84C]">scalable cloud architecture</span> to turn ambitious ideas into reality.
               </p>
 
               {/* Action Buttons */}
@@ -509,25 +485,12 @@ export default function PortfolioPage({ onNavigateHome }) {
                     <Server className="h-4 w-4" />
                   </div>
                   <div className="text-left">
-                    <p className="text-[11px] font-bold text-white">Backend Systems</p>
-                    <p className="text-[10px] text-zinc-400">Node • MongoDB • Firebase</p>
+                    <p className="text-[11px] font-bold text-white">Cloud Architecture</p>
+                    <p className="text-[10px] text-zinc-400">Resilient & Scalable Systems</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* STATS STRIP */}
-          <div className="mt-16 grid grid-cols-2 gap-4 border-y border-white/[0.08] py-8 sm:grid-cols-4 lg:mt-24">
-            {stats.map((s, idx) => (
-              <div key={idx} className="px-4 text-center sm:border-r sm:border-white/[0.08] sm:last:border-none">
-                <p className="text-3xl font-extrabold text-[#E0B84C] sm:text-4xl lg:text-5xl">
-                  {s.value}
-                </p>
-                <p className="mt-1 text-sm font-semibold text-white">{s.label}</p>
-                <p className="mt-0.5 text-xs text-zinc-400">{s.detail}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -558,11 +521,10 @@ export default function PortfolioPage({ onNavigateHome }) {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`rounded-lg px-4 py-2 text-xs font-semibold transition cursor-pointer ${
-                    activeTab === tab.id
+                  className={`rounded-lg px-4 py-2 text-xs font-semibold transition cursor-pointer ${activeTab === tab.id
                       ? "bg-[#C9A227] text-black shadow-md"
                       : "text-zinc-400 hover:text-white"
-                  }`}
+                    }`}
                 >
                   {tab.label}
                 </button>
@@ -685,59 +647,34 @@ export default function PortfolioPage({ onNavigateHome }) {
             <p className="mx-auto mt-4 max-w-2xl text-base text-zinc-400">
               Modern frontend architecture, resilient backend APIs, and structured database engineering.
             </p>
-
-            {/* Category Filter */}
-            <div className="mt-8 flex flex-wrap justify-center gap-2">
-              {[
-                { id: "all", label: "All Skills" },
-                { id: "frontend", label: "Frontend" },
-                { id: "backend", label: "Backend" },
-                { id: "database", label: "Database" },
-                { id: "tools", label: "Tools & Deployment" },
-              ].map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setSkillCategory(cat.id)}
-                  className={`rounded-xl px-4 py-2 text-xs font-semibold transition cursor-pointer ${
-                    skillCategory === cat.id
-                      ? "bg-[#C9A227] text-black shadow-lg shadow-[#C9A227]/20"
-                      : "border border-white/10 bg-white/[0.03] text-zinc-300 hover:border-[#C9A227]/40 hover:text-[#E0B84C]"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
           </div>
 
           <div className="mt-14 space-y-12">
-            {skillGroups
-              .filter((group) => skillCategory === "all" || group.category === skillCategory)
-              .map((group) => (
-                <div key={group.category} className="rounded-2xl border border-white/[0.08] bg-[#0b0a10] p-6 sm:p-8">
-                  <div className="flex items-center gap-3 border-b border-white/[0.06] pb-4">
-                    <div className="h-2 w-2 rounded-full bg-[#E0B84C]" />
-                    <h3 className="text-lg font-bold text-white">{group.categoryName}</h3>
-                  </div>
-
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {group.skills.map((skill, sIdx) => (
-                      <div
-                        key={sIdx}
-                        className="rounded-xl border border-white/[0.06] bg-[#121117]/60 p-4 transition hover:border-[#C9A227]/40 hover:bg-[#16151f]"
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="font-semibold text-white">{skill.name}</span>
-                          <span className="rounded-md border border-[#C9A227]/30 bg-[#C9A227]/10 px-2 py-0.5 text-[10px] font-semibold text-[#F3D47A]">
-                            {skill.level}
-                          </span>
-                        </div>
-                        <p className="mt-2 text-xs text-zinc-400">{skill.desc}</p>
-                      </div>
-                    ))}
-                  </div>
+            {skillGroups.map((group) => (
+              <div key={group.category} className="rounded-2xl border border-white/[0.08] bg-[#0b0a10] p-6 sm:p-8">
+                <div className="flex items-center gap-3 border-b border-white/[0.06] pb-4">
+                  <div className="h-2 w-2 rounded-full bg-[#E0B84C]" />
+                  <h3 className="text-lg font-bold text-white">{group.categoryName}</h3>
                 </div>
-              ))}
+
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.skills.map((skill, sIdx) => (
+                    <div
+                      key={sIdx}
+                      className="rounded-xl border border-white/[0.06] bg-[#121117]/60 p-4 transition hover:border-[#C9A227]/40 hover:bg-[#16151f]"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-semibold text-white">{skill.name}</span>
+                        <span className="rounded-md border border-[#C9A227]/30 bg-[#C9A227]/10 px-2 py-0.5 text-[10px] font-semibold text-[#F3D47A]">
+                          {skill.level}
+                        </span>
+                      </div>
+                      <p className="mt-2 text-xs text-zinc-400">{skill.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -808,7 +745,7 @@ export default function PortfolioPage({ onNavigateHome }) {
               </h2>
 
               <p className="mt-6 text-base leading-relaxed text-zinc-300">
-                I am a dedicated software developer passionate about creating fast, responsive, and reliable web applications. My journey spans the entire web development lifecycle: from drafting clean, accessible UI components in React to engineering resilient server logic with Node.js and managing databases like MongoDB and Firebase.
+                I am a dedicated software developer passionate about creating fast, responsive, and reliable digital experiences. My craft spans the entire development lifecycle: from sculpting intuitive, accessible user interfaces to engineering robust backend architectures, high-efficiency data layers, and production-grade web solutions.
               </p>
 
               <p className="mt-4 text-base leading-relaxed text-zinc-400">
@@ -972,7 +909,7 @@ export default function PortfolioPage({ onNavigateHome }) {
                       <Phone className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-xs text-zinc-400">Direct Phone / WhatsApp</p>
+                      <p className="text-xs text-zinc-400">Direct Phone</p>
                       <a href={`tel:${phoneNumber}`} className="text-sm font-semibold text-white hover:text-emerald-400">
                         {formattedPhone}
                       </a>
@@ -986,25 +923,6 @@ export default function PortfolioPage({ onNavigateHome }) {
                     {copiedPhone ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
                   </button>
                 </div>
-
-                {/* WhatsApp Chat Card */}
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-4 transition hover:bg-emerald-500/20"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/30 text-emerald-400">
-                      <WhatsAppIcon className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-emerald-300">Instant Messaging</p>
-                      <p className="text-sm font-bold text-white">Chat directly on WhatsApp</p>
-                    </div>
-                  </div>
-                  <ArrowUpRight className="h-5 w-5 text-emerald-400" />
-                </a>
               </div>
             </div>
 

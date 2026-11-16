@@ -29,7 +29,7 @@ const WhatsAppIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
-export default function Footer({ onNavigateHome, onNavigatePortfolio, onNavigateSection }) {
+export default function Footer({ onNavigateSection }) {
   const emailAddress = "amiflexboyc@gmail.com";
   const whatsappUrl =
     "https://wa.me/2349077108987?text=Hello%20ADETECH%2C%20I%20saw%20your%20portfolio!";
@@ -48,7 +48,7 @@ export default function Footer({ onNavigateHome, onNavigatePortfolio, onNavigate
           {/* Col 1: Brand */}
           <div className="md:col-span-2">
             <button
-              onClick={onNavigateHome}
+              onClick={() => onNavigateSection("home")}
               className="flex items-center gap-3 text-left cursor-pointer group"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#C9A227]/40 bg-gradient-to-br from-[#1c180d] to-[#0A0805] text-[#E0B84C] font-extrabold shadow-lg shadow-[#C9A227]/10 transition group-hover:border-[#E0B84C]">
@@ -65,7 +65,7 @@ export default function Footer({ onNavigateHome, onNavigatePortfolio, onNavigate
             </button>
 
             <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-400">
-              Building modern, responsive, and innovative digital experiences. Specializing in React, Node.js, and end-to-end full-stack web applications.
+              Building modern, responsive, and innovative digital experiences with scalable architectures, elegant interfaces, and end-to-end engineering excellence.
             </p>
 
             <div className="mt-6 flex items-center gap-3">
@@ -132,18 +132,10 @@ export default function Footer({ onNavigateHome, onNavigatePortfolio, onNavigate
             <ul className="mt-4 space-y-2 text-sm text-zinc-400">
               <li>
                 <button
-                  onClick={onNavigateHome}
+                  onClick={() => onNavigateSection("home")}
                   className="hover:text-white transition cursor-pointer"
                 >
-                  Home Landing Page
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={onNavigatePortfolio}
-                  className="hover:text-white transition cursor-pointer"
-                >
-                  Main Portfolio
+                  Home / Overview
                 </button>
               </li>
               <li>
@@ -168,6 +160,14 @@ export default function Footer({ onNavigateHome, onNavigatePortfolio, onNavigate
                   className="hover:text-white transition cursor-pointer"
                 >
                   Services
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigateSection("about")}
+                  className="hover:text-white transition cursor-pointer"
+                >
+                  About Me
                 </button>
               </li>
               <li>

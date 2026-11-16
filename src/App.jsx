@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
-import HomeLanding from "./components/HomeLanding";
 import PortfolioPage from "./components/PortfolioPage";
 import Footer from "./components/Footer";
 
@@ -12,7 +11,7 @@ const WhatsAppIcon = ({ className = "w-5 h-5" }) => (
 );
 
 export default function App() {
-  const [currentView, setCurrentView] = useState("home");
+  const [activeSection, setActiveSection] = useState("home");
 
   const whatsappUrl =
     "https://wa.me/2349077108987?text=Hello%20ADETECH%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!";
@@ -21,25 +20,14 @@ export default function App() {
   useEffect(() => {
     const handleHashSync = () => {
       const hash = window.location.hash.replace("#", "");
-      if (
-        hash === "portfolio" ||
-        hash === "projects" ||
-        hash === "skills" ||
-        hash === "services" ||
-        hash === "about" ||
-        hash === "contact"
-      ) {
-        setCurrentView("portfolio");
-        if (hash !== "portfolio") {
-          setTimeout(() => {
-            const el = document.getElementById(hash);
-            if (el) {
-              el.scrollIntoView({ behavior: "smooth" });
-            }
-          }, 100);
+      if (hash) {
+        setActiveSection(hash);
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
         }
       } else {
-        setCurrentView("home");
+        setActiveSection("home");
       }
     };
 
@@ -48,20 +36,14 @@ export default function App() {
     return () => window.removeEventListener("hashchange", handleHashSync);
   }, []);
 
-  const navigateToHome = () => {
-    setCurrentView("home");
-    window.history.pushState(null, "", "#home");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const navigateToPortfolio = () => {
-    setCurrentView("portfolio");
-    window.history.pushState(null, "", "#portfolio");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   const navigateToSection = (sectionId) => {
-    setCurrentView("portfolio");
+    if (sectionId === "home" || sectionId === "portfolio-overview") {
+      setActiveSection("home");
+      window.history.pushState(null, "", "#");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    setActiveSection(sectionId);
     window.history.pushState(null, "", `#${sectionId}`);
     setTimeout(() => {
       const el = document.getElementById(sectionId);
@@ -70,7 +52,7 @@ export default function App() {
       } else {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    }, 80);
+    }, 50);
   };
 
   return (
@@ -84,30 +66,17 @@ export default function App() {
 
       {/* TOP NAVIGATION BAR */}
       <Navbar
-        currentView={currentView}
-        onNavigateHome={navigateToHome}
-        onNavigatePortfolio={navigateToPortfolio}
+        activeSection={activeSection}
         onNavigateSection={navigateToSection}
       />
 
-      {/* MAIN CONTENT VIEW SWITCHER */}
+      {/* MAIN PORTFOLIO CONTENT */}
       <main className="relative z-10">
-        {currentView === "home" ? (
-          <HomeLanding
-            onNavigatePortfolio={navigateToPortfolio}
-            onNavigateSection={navigateToSection}
-          />
-        ) : (
-          <PortfolioPage onNavigateHome={navigateToHome} />
-        )}
+        <PortfolioPage />
       </main>
 
       {/* FOOTER */}
-      <Footer
-        onNavigateHome={navigateToHome}
-        onNavigatePortfolio={navigateToPortfolio}
-        onNavigateSection={navigateToSection}
-      />
+      <Footer onNavigateSection={navigateToSection} />
 
       {/* FLOATING WHATSAPP BUTTON (NO EMOJIS) */}
       <a
